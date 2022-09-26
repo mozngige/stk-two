@@ -70,3 +70,12 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# phonyrails 
+gem 'phony_rails' 
+
+# httparty 
+gem 'httparty' 
+
+# figaro; manage env vars 
+gem 'figaro' 
