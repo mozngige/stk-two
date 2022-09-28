@@ -14,7 +14,7 @@ class PushController < ApplicationController
       # @amount = params[:amount]
       # @phone_number = phone 
       
-      payment = Payment.new(amount: { params[:amount], phone_number: phone )
+      payment = Payment.new(amount: params[:amount], phone_number: phone )
       
       
       # binding.irb
