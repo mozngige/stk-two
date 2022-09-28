@@ -1,6 +1,6 @@
 class Payment < ApplicationRecord 
   # this class processes payments
-  after_create :push_stk 
+  before_save :push_stk 
   # after_create is called after saving new object to db 
   # after_create is wrapped in around save  
 

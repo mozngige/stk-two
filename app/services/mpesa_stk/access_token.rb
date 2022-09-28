@@ -22,8 +22,8 @@ module MpesaStk
 
     def get_access_token 
       # hit token_generator endpoint
-      response = HTTParty.get(url, headers) 
-      JSON.parse(response.body).fetch('access_token') # returns an access_token 
+      response = HTTParty.get(url, headers: headers) 
+      JSON.parse(response.body).fetch['access_token'] # returns an access_token 
     end
 
     private
@@ -39,7 +39,7 @@ module MpesaStk
     end
 
     def encode_credentials 
-      @encode = Base64.encode("#{ENV['key']}:#{ENV['secret']}").split("\n").join 
+      @encode = Base64.encode64("#{ENV['key']}:#{ENV['secret']}").split("\n").join 
     end
   end
 end

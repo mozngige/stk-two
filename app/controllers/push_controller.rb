@@ -11,8 +11,13 @@ class PushController < ApplicationController
     if params.present? 
       phone = PhonyRails.normalize_number(params[:phone_number], country_code: 'KE').gsub(/\W/, '')
       # new payment 
-      payment = Payment.new(amount: params[:amount], phone_number: phone)
-
+      # @amount = params[:amount]
+      # @phone_number = phone 
+      
+      payment = Payment.new(amount: { params[:amount], phone_number: phone )
+      
+      
+      # binding.irb
       if payment.save 
         redirect_to root_path, :flash => { success: "payment successful"}
       else 

@@ -14,14 +14,14 @@ module MpesaStk
       @amount = amount
       @phone_number = phone_number
       # get token 
-      @token = MpesaStk::AccessToken.call()
+      @token = MpesaStk::AccessToken.call
     end
 
     attr_reader :amount, :phone_number, :token  
 
     def push_payment 
       # make a post request 
-      response = HTTParty.post(url, headers, body) 
+      response = HTTParty.post(url, headers: headers, body: body) 
       JSON.parse(response.body)
     end
 
@@ -55,7 +55,7 @@ module MpesaStk
 
     def generate_password 
       key = "#{ENV['business_short_code']}#{ENV['business_passkey']}#{timestamp}"
-      Base64.encode(key).split("\n").join 
+      Base64.encode64(key).split("\n").join 
     end
 
     def generate_bill_reference_number 

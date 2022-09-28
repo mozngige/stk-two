@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'push#index' 
   post '/payment', to: 'push#payment' 
+  get '/callback', to: 'push#callback' 
 end
